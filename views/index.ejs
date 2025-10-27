@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -36,4 +36,62 @@
     </div>    
     <script src="/javascripts/script.js"></script>
 </body>
-</html>  
+</html>   -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notes Maker</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-zinc-900 via-slate-900 to-zinc-800 text-white font-[Poppins]">
+
+  <!-- Header -->
+  <header class="p-6 text-center border-b border-zinc-700 backdrop-blur-sm bg-zinc-900/40 sticky top-0">
+    <h1 class="text-4xl font-semibold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-purple-400 drop-shadow-lg">
+      Notes Maker
+    </h1>
+  </header>
+
+  <!-- Main Section -->
+  <main class="flex flex-col items-center py-12 px-4">
+    <!-- Form -->
+    <form action="/create" method="post" class="w-full max-w-md bg-zinc-800/60 p-6 rounded-2xl shadow-lg backdrop-blur-md border border-zinc-700">
+      <input 
+        type="text" 
+        name="title" 
+        placeholder="Title goes here..." 
+        class="w-full mb-4 p-3 rounded-lg bg-zinc-700/50 text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-sky-400"
+      >
+      <textarea 
+        name="details" 
+        cols="30" 
+        rows="6" 
+        placeholder="Write your thoughts..." 
+        class="w-full p-3 rounded-lg bg-zinc-700/50 text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-sky-400 mb-4"
+      ></textarea>
+      <input 
+        type="submit" 
+        value="Save Note" 
+        class="w-full bg-gradient-to-r from-sky-500 to-purple-500 text-white font-semibold py-2 rounded-lg shadow-md hover:from-sky-600 hover:to-purple-600 transition-all duration-200 cursor-pointer"
+      >
+    </form>
+
+    <!-- Notes Section -->
+    <section class="tasks mt-12 w-full flex flex-wrap justify-center gap-6 px-4">
+      <% if(files.length > 0){ %>
+        <% files.forEach(function(val){ %>
+          <div class="task w-72 bg-zinc-800/70 border border-zinc-700 rounded-2xl p-5 shadow-md hover:shadow-sky-600/20 hover:scale-[1.02] transition-all duration-300">
+            <h1 class="text-xl font-semibold text-sky-300 mb-2 truncate"><%= val %></h1>
+            <a href="/files/<%= val %>.txt" class="text-purple-400 hover:text-purple-300 transition-colors">Read more →</a>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <h3 class="text-zinc-500 italic mt-10">No notes yet — start writing something!</h3>
+      <% } %>
+    </section>
+  </main>
+
+</body>
+</html>

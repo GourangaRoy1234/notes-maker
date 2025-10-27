@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,5 +13,47 @@
         <h1 CLASS="text-4xl"><%= filename %></h1>
         <p class="text-xl mt-2 font-light"><%= filedata %></p>
     </div>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= filename %></title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-black via-zinc-900 to-zinc-950 text-gray-100 font-serif tracking-wide">
+
+  <!-- Decorative Glow -->
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.05),_transparent_60%)] pointer-events-none"></div>
+
+  <!-- Main Container -->
+  <main class="relative z-10 max-w-3xl mx-auto px-6 py-16">
+    
+    <!-- Go Back -->
+    <a href="/" class="text-slate-400 hover:text-slate-200 transition-colors mb-6 inline-flex items-center gap-2 group">
+      <span class="group-hover:-translate-x-1 transition-transform">←</span>
+      <span>Go Back</span>
+    </a>
+
+    <!-- Title -->
+    <h1 class="text-5xl font-black mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-neutral-100 to-zinc-400 drop-shadow-[0_0_15px_rgba(255,255,255,0.15)] uppercase tracking-[0.15em]">
+      <%= filename %>
+    </h1>
+
+    <!-- Note Container -->
+    <div class="bg-zinc-900/60 border border-zinc-700 rounded-xl shadow-[0_0_20px_rgba(255,255,255,0.05)] p-8 leading-relaxed text-lg text-zinc-300 backdrop-blur-md">
+      <p class="whitespace-pre-line font-light">
+        <%= filedata %>
+      </p>
+    </div>
+
+    <!-- Bottom Glow Accent -->
+    <div class="mt-16 text-center">
+      <p class="text-sm text-zinc-500 italic">“The pen is mightier than the sword... but the one who writes decides who lives.”</p>
+    </div>
+
+  </main>
 </body>
 </html>
